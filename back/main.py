@@ -24,7 +24,7 @@ def listen():
         while True:
             time.sleep(4)
             a += random.choice(['a', 'b', 'c'])  # blocks until a new message arrives
-            yield a
+            yield f'data: {a}\n\n'
 
     return _corsify_actual_response(Response(stream(), mimetype='text/event-stream'))
 
